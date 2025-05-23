@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit, send
 
 # Cria a instância do Flask
-app = Flask(__name__, template_folder='templates_html')
+app = Flask(__name__)
 
 # Configura o SocketIO para permitir conexões de qualquer origem
 socketio = SocketIO(app, cors_allowed_origins="*")
