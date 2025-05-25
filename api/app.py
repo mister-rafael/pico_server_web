@@ -1,12 +1,12 @@
 # Importa as bibliotecas Flask e SocketIO
-from flask import Flask, render_template, request 
+from flask import Flask, jsonify, render_template, request 
 from flask_socketio import SocketIO, emit, send
 
 # Cria a instância do Flask
 app = Flask(__name__)
 
 # Configura o SocketIO para permitir conexões de qualquer origem
-socketio = SocketIO(app, cors_allowed_origins="*")
+#socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Rota principal que serve a página HTML
 @app.route('/')
@@ -18,14 +18,15 @@ def index():
 # Define uma função para lidar com o evento de clique do botão A
 def click_a():
     print("Comando: Botão A, pressionado")
-    socketio.emit('command', {'action': 'click_a'})  # Envia comando para ON
-    return 'Click command sent', 200 # Retorna resposta HTTP 200
-
+    #socketio.emit('command', {'action': 'click_a'})  # Envia comando para ON
+    #return 'Click command sent', 200 # Retorna resposta HTTP 200
+    return jsonify({'action': 'click_a', 'message': 'Click command sent'})
 @app.route('/SOLTO_A', methods=['GET', 'POST']) # Define a rota para o comando de solto
 def solto_a():
     print("Comando: Botão A, solto")
-    socketio.emit('command', {'action': 'solto_a'})  # Envia comando para OFF
-    return 'solto command sent', 200
+    #socketio.emit('command', {'action': 'solto_a'})  # Envia comando para OFF
+    #return 'solto command sent', 200
+    return jsonify({'action': 'solto_a', 'message': 'solto command sent'})
 
 
 #=============================================================================================
