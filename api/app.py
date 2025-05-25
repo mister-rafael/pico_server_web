@@ -10,23 +10,23 @@ app = Flask(__name__)
 
 # Rota principal que serve a página HTML
 @app.route('/')
-def index():
-    return render_template('index.html')  # Renderiza o template web/templates/index.html
+def home():
+    return 'Conectou.'  # Renderiza o template web/templates/index.html
 # ==============================================================================================
 
-@app.route('/CLICK_A', methods=['GET', 'POST']) # Define a rota para o comando de clique
+#@app.route('/CLICK_A', methods=['GET', 'POST']) # Define a rota para o comando de clique
 # Define uma função para lidar com o evento de clique do botão A
-def click_a():
-    print("Comando: Botão A, pressionado")
+#def click_a():
+    #print("Comando: Botão A, pressionado")
     #socketio.emit('command', {'action': 'click_a'})  # Envia comando para ON
     #return 'Click command sent', 200 # Retorna resposta HTTP 200
-    return jsonify({'action': 'click_a', 'message': 'Click command sent'})
-@app.route('/SOLTO_A', methods=['GET', 'POST']) # Define a rota para o comando de solto
-def solto_a():
-    print("Comando: Botão A, solto")
+    #return jsonify({'action': 'click_a', 'message': 'Click command sent'})
+#@app.route('/SOLTO_A', methods=['GET', 'POST']) # Define a rota para o comando de solto
+#def solto_a():
+    #print("Comando: Botão A, solto")
     #socketio.emit('command', {'action': 'solto_a'})  # Envia comando para OFF
     #return 'solto command sent', 200
-    return jsonify({'action': 'solto_a', 'message': 'solto command sent'})
+    #return jsonify({'action': 'solto_a', 'message': 'solto command sent'})
 
 
 #=============================================================================================
