@@ -1,36 +1,11 @@
-# Importa as bibliotecas Flask e SocketIO
-from flask import Flask, jsonify, render_template, request 
-from flask_socketio import SocketIO, emit, send
+from flask import Flask
 
-# Cria a instância do Flask
 app = Flask(__name__)
 
-# Configura o SocketIO para permitir conexões de qualquer origem
-#socketio = SocketIO(app, cors_allowed_origins="*")
-
-# Rota principal que serve a página HTML
 @app.route('/')
 def home():
-    return 'Conectou.'  # Renderiza o template web/templates/index.html
-# ==============================================================================================
+    return 'Olá, Rafa!'
 
-#@app.route('/CLICK_A', methods=['GET', 'POST']) # Define a rota para o comando de clique
-# Define uma função para lidar com o evento de clique do botão A
-#def click_a():
-    #print("Comando: Botão A, pressionado")
-    #socketio.emit('command', {'action': 'click_a'})  # Envia comando para ON
-    #return 'Click command sent', 200 # Retorna resposta HTTP 200
-    #return jsonify({'action': 'click_a', 'message': 'Click command sent'})
-#@app.route('/SOLTO_A', methods=['GET', 'POST']) # Define a rota para o comando de solto
-#def solto_a():
-    #print("Comando: Botão A, solto")
-    #socketio.emit('command', {'action': 'solto_a'})  # Envia comando para OFF
-    #return 'solto command sent', 200
-    #return jsonify({'action': 'solto_a', 'message': 'solto command sent'})
-
-
-#=============================================================================================
-# Ponto de entrada principal da aplicação
-#if __name__ == '__main__':
-#    # Inicia o servidor Flask com suporte a WebSockets
-#    socketio.run(app, host='0.0.0.0', port=80) # Permite conexões de qualquer IP na porta 5000
+@app.route('/about')
+def about():
+    return 'About'
