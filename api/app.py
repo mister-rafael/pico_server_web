@@ -1,6 +1,7 @@
 # Importa as bibliotecas Flask e SocketIO
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit, send
+import os
 
 # Cria a instância do Flask
 app = Flask(__name__)
@@ -27,4 +28,5 @@ def solto_a():
 # Ponto de entrada principal da aplicação
 if __name__ == '__main__':
     # Inicia o servidor Flask com suporte a WebSockets
-    socketio.run(app, host='0.0.0.0', port=5000) # Permite conexões de qualquer IP na porta 5000
+    port = int(os.environ.get("PORT", 10000))
+    socketio.run(app, host='0.0.0.0', port=port) # Permite conexões de qualquer IP na porta 5000
